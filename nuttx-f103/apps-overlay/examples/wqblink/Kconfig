@@ -1,0 +1,31 @@
+#
+# apps/examples/wqblink/Kconfig
+#
+
+config EXAMPLES_WQBLINK
+	tristate "Work-queue periodic blink (week7)"
+	default n
+	depends on SCHED_LPWORK || SCHED_HPWORK
+	---help---
+		Demo: schedule periodic LED/printf work on LPWORK instead of
+		a dedicated task looping with usleep().
+
+if EXAMPLES_WQBLINK
+
+config EXAMPLES_WQBLINK_PROGNAME
+	string "Program name"
+	default "wqblink"
+
+config EXAMPLES_WQBLINK_PRIORITY
+	int "wqblink task priority"
+	default 100
+
+config EXAMPLES_WQBLINK_STACKSIZE
+	int "wqblink stack size"
+	default DEFAULT_TASK_STACKSIZE
+
+config EXAMPLES_WQBLINK_INTERVAL_MS
+	int "Work period (ms)"
+	default 500
+
+endif

@@ -1,0 +1,14 @@
+; app_boot scatter for WarShip F103
+; bootloader: 0x08000000 size 0x8000  (32KB)
+; app_boot  : 0x08008000 size 0x78000
+
+LR_IROM1 0x08008000 0x00078000  {
+  ER_IROM1 0x08008000 0x00078000  {
+   *.o (RESET, +First)
+   *(InRoot$$Sections)
+   .ANY (+RO)
+  }
+  RW_IRAM1 0x20000000 0x00010000  {
+   .ANY (+RW +ZI)
+  }
+}

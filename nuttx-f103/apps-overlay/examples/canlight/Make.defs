@@ -1,0 +1,7 @@
+############################################################################
+# apps/examples/canlight/Make.defs
+############################################################################
+
+ifneq ($(CONFIG_EXAMPLES_CANLIGHT),)
+CONFIGURED_APPS += $(APPDIR)/examples/canlight
+endif

@@ -1,0 +1,113 @@
+# -----------------------------------------------------------------------------
+# Automotive learning repo — gitignore
+# Keep: source, Kconfig, Keil .uvprojx / .sct, markdown, host scripts
+# Drop: build artifacts, IDE junk, OS junk, huge images, secrets, logs
+# -----------------------------------------------------------------------------
+
+# --- OS ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+*.swp
+*.swo
+*~
+
+# --- Editors / IDE ---
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# --- Secrets / local env ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+
+# --- Logs / dumps ---
+*.log
+stlinkerror.log
+*.tmp
+*.bak
+*.orig
+core
+core.*
+
+# --- Keil / ARMCC (bootDemo, app_boot) ---
+**/OBJ/
+**/Listings/
+**/DebugConfig/
+*.o
+*.d
+*.crf
+*.dep
+*.axf
+*.hex
+*.bin
+*.elf
+*.map
+*.lst
+*.lnp
+*.build_log.htm
+*.htm
+!**/RTE/**/*.htm
+*.uvgui.*
+*.uvguix.*
+*.uvoptx
+*.sfd
+*.iex
+*.plg
+
+# Keep scatter / project (do not ignore):
+# *.uvprojx
+# *.sct
+
+# --- NuttX (if cloned into this tree later) ---
+nuttx-f103/build/*
+!nuttx-f103/build/.gitkeep
+**/.config
+**/.config.old
+**/nuttx.bin
+**/nuttx.hex
+**/System.map
+**/*.a
+!**/apps-overlay/**
+
+# --- HiKey / large vendor blobs (stay on F:\Hikey970) ---
+*.rar
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.img
+*.sparse.img
+*.iso
+hikey970-lebian-*/
+**/can_log_*.txt
+hikey970-socketcan/logs/
+
+# --- Scratch ---
+_tmp_pdf_extract/
+*.pdf
+!docs/**/*.pdf
+
+# --- Cursor / local agent ---
+.cursor/
+agent-transcripts/

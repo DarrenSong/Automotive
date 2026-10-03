@@ -1,0 +1,7 @@
+############################################################################
+# apps/examples/ledblink/Make.defs
+############################################################################
+
+ifneq ($(CONFIG_EXAMPLES_LEDBLINK),)
+CONFIGURED_APPS += $(APPDIR)/examples/ledblink
+endif

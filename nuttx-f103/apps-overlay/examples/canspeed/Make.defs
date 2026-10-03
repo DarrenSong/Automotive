@@ -1,0 +1,7 @@
+############################################################################
+# apps/examples/canspeed/Make.defs
+############################################################################
+
+ifneq ($(CONFIG_EXAMPLES_CANSPEED),)
+CONFIGURED_APPS += $(APPDIR)/examples/canspeed
+endif

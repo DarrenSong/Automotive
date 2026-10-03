@@ -1,0 +1,3 @@
+# nuttx-f103 build drop
+
+Copy `nuttx.bin` / `nuttx.hex` from Firefly here after `make`, then flash with ST-Link.

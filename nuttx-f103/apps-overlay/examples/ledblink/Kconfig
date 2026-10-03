@@ -1,0 +1,29 @@
+#
+# apps/examples/ledblink/Kconfig
+#
+
+config EXAMPLES_LEDBLINK
+	tristate "LED blink user-task example (week7)"
+	default n
+	---help---
+		Periodic task demo: usleep + printf, optional /dev/userleds.
+
+if EXAMPLES_LEDBLINK
+
+config EXAMPLES_LEDBLINK_PROGNAME
+	string "Program name"
+	default "ledblink"
+
+config EXAMPLES_LEDBLINK_PRIORITY
+	int "ledblink task priority"
+	default 100
+
+config EXAMPLES_LEDBLINK_STACKSIZE
+	int "ledblink stack size"
+	default DEFAULT_TASK_STACKSIZE
+
+config EXAMPLES_LEDBLINK_INTERVAL_MS
+	int "Blink interval (ms)"
+	default 500
+
+endif

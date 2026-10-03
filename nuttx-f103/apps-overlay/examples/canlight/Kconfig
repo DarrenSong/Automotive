@@ -1,0 +1,45 @@
+#
+# apps/examples/canlight/Kconfig
+#
+
+config EXAMPLES_CANLIGHT
+	tristate "CAN RX light control (week8)"
+	default n
+	depends on CAN
+	depends on USERLED
+	---help---
+		Receive CAN ID 0x202 and drive /dev/userleds.
+		data[0] bit0=LED0 (PB5), bit1=LED1 (PE5).
+		Also: "canlight <mask>" sends one TX frame for loopback self-test.
+
+if EXAMPLES_CANLIGHT
+
+config EXAMPLES_CANLIGHT_PROGNAME
+	string "Program name"
+	default "canlight"
+
+config EXAMPLES_CANLIGHT_PRIORITY
+	int "canlight NSH task priority"
+	default 100
+
+config EXAMPLES_CANLIGHT_STACKSIZE
+	int "canlight NSH task stack size"
+	default DEFAULT_TASK_STACKSIZE
+
+config EXAMPLES_CANLIGHT_DAEMON_PRIORITY
+	int "canlight RX daemon priority"
+	default 100
+
+config EXAMPLES_CANLIGHT_DAEMON_STACKSIZE
+	int "canlight RX daemon stack size"
+	default 2048
+
+config EXAMPLES_CANLIGHT_DEVPATH
+	string "CAN device path"
+	default "/dev/can0"
+
+config EXAMPLES_CANLIGHT_ID
+	hex "RX/TX CAN standard ID for lights"
+	default 0x202
+
+endif

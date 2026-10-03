@@ -1,0 +1,45 @@
+#
+# apps/examples/canspeed/Kconfig
+#
+
+config EXAMPLES_CANSPEED
+	tristate "CAN vehicle-speed TX demo (week8)"
+	default n
+	depends on CAN
+	depends on SCHED_LPWORK || SCHED_HPWORK
+	---help---
+		Periodically send std CAN ID 0x201 on /dev/can0.
+		Default runs on LPWORK so NSH stays free (like wqblink).
+		Use "canspeed fg" for old blocking loop; "canspeed stop" to cancel.
+
+if EXAMPLES_CANSPEED
+
+config EXAMPLES_CANSPEED_PROGNAME
+	string "Program name"
+	default "canspeed"
+
+config EXAMPLES_CANSPEED_PRIORITY
+	int "canspeed task priority"
+	default 100
+
+config EXAMPLES_CANSPEED_STACKSIZE
+	int "canspeed stack size"
+	default DEFAULT_TASK_STACKSIZE
+
+config EXAMPLES_CANSPEED_DEVPATH
+	string "CAN device path"
+	default "/dev/can0"
+
+config EXAMPLES_CANSPEED_ID
+	hex "TX CAN standard ID"
+	default 0x201
+
+config EXAMPLES_CANSPEED_INTERVAL_MS
+	int "TX period (ms)"
+	default 100
+
+config EXAMPLES_CANSPEED_COUNT
+	int "Number of frames (0=forever)"
+	default 50
+
+endif

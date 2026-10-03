@@ -1,0 +1,7 @@
+############################################################################
+# apps/examples/wqblink/Make.defs
+############################################################################
+
+ifneq ($(CONFIG_EXAMPLES_WQBLINK),)
+CONFIGURED_APPS += $(APPDIR)/examples/wqblink
+endif
